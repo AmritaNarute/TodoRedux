@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native'
 import React from 'react'
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const TodoList = () => {
     const data = [
@@ -23,7 +24,7 @@ const TodoList = () => {
                     onPress={() => {
                         deleteItem(item.id)
                     }}>
-                    <Text style={styles.delete}>Delete</Text>
+                    <Ionicons name="trash" size={30} color="red" />
                 </TouchableOpacity>
 
             </View>
@@ -46,16 +47,20 @@ export default TodoList
 
 const styles = StyleSheet.create({
     item: {
-        backgroundColor: "#f9c2ff",
+        backgroundColor: "#e9e9e9",
         padding: 20,
         marginVertical: 8,
-        marginHorizontal: 16
+        marginHorizontal: 16,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems:'center'
     },
     title: {
-        fontSize: 30
+        fontSize: 20
     },
     delete: {
-        fontSize: 20
+        fontSize: 20,
+        color: 'red'
     }
 
 })

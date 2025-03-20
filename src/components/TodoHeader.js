@@ -7,7 +7,7 @@ const TodoHeader = () => {
         <View>
             <Text
                 style={{
-                    fontSize: 25,
+                    fontSize: 21,
                     fontWeight: 'bold',
                     textAlign: 'center',
                     marginTop: '16%',
@@ -21,7 +21,7 @@ const TodoHeader = () => {
                         borderWidth: 1,
                         padding: 16,
                         margin: 10,
-                        width: "80%",
+                        width: "90%",
                         borderRadius: 5,
                     }}
                     placeholder='Add todo'
@@ -33,7 +33,7 @@ const TodoHeader = () => {
                         backgroundColor: 'gray',
                         padding: 10,
                         margin: 10,
-                        width: '80%',
+                        width: '90%',
                         borderRadius: 5,
                         alignItems: 'center'
                     }}
