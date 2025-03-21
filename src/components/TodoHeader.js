@@ -1,7 +1,26 @@
-import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, Alert } from 'react-native'
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const TodoHeader = () => {
+    const dispatch = useDispatch();
+    const onSubmitTask = () => {
+        if (todo.trim().length === 0) {
+            Alert.alert(
+                'you need to Enter task'
+            );
+            setTodo("");
+            return;
+        }
+        dispatch(
+            addTodo({
+                task: todo,
+            })
+        );
+        setTodo("");
+    }
+
     const [todo, setTodo] = useState("");
     return (
         <View>
@@ -11,7 +30,7 @@ const TodoHeader = () => {
                     fontWeight: 'bold',
                     textAlign: 'center',
                     marginTop: '16%',
-                    paddingVertical:10
+                    paddingVertical: 10
                 }}
             >Todo List</Text>
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
@@ -37,10 +56,8 @@ const TodoHeader = () => {
                         borderRadius: 5,
                         alignItems: 'center'
                     }}
-                    onPress={() => {
-                        setTodo("");
-                    }}>
-                    <Text style={{ color: "white",fontSize:16 }}>Add</Text>
+                    onPress={onSubmitTask}>
+                    <Text style={{ color: "white", fontSize: 16 }}>Add</Text>
                 </TouchableOpacity>
             </View>
 
